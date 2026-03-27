@@ -1,0 +1,27 @@
+import java.util.Arrays; 
+import java.util.Scanner; 
+public class AnagramCount { 
+// Function to sort characters of a string 
+static String sortString(String str) { 
+char[] charArray = str.toCharArray(); 
+Arrays.sort(charArray); 
+return new String(charArray); 
+} 
+public static void main(String[] args) { 
+Scanner sc = new Scanner(System.in); 
+System.out.print("Enter the text: "); 
+String text = sc.nextLine(); 
+System.out.print("Enter the pattern: "); 
+String pattern = sc.nextLine(); 
+int k = pattern.length(); 
+int count = 0; 
+String sortedPattern = sortString(pattern); 
+for (int i = 0; i <= text.length() - k; i++) { 
+String substring = text.substring(i, i + k); 
+if (sortString(substring).equals(sortedPattern)) { 
+count++; 
+} 
+} 
+System.out.println("Number of anagram substrings: " + count); 
+} 
+}
